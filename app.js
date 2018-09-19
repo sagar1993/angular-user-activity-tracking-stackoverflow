@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ngRoute', 'ngCookies'])
+        .module('app', ['ngRoute', 'ngCookies', 'chart.js'])
         .config(config)
         .run(run);
 
@@ -40,6 +40,11 @@
             })
 
             .otherwise({ redirectTo: '/login' });
+
+
+            (function (ChartJsProvider) {
+                ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+              }); 
     }
 
     run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
