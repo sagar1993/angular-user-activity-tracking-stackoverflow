@@ -132,6 +132,18 @@
             return deferred.promise;
         }
 
+        function GetUserActivityChartData() {
+            console.log('get-user-activity-chart-data');
+
+            var deferred = $q.defer();
+            $http.get('http://127.0.0.1:5000/get_user_activity').then(function (res) {
+                deferred.resolve(res.data);
+            }, function(msg, code){
+                deferred.reject(msg);
+            });
+            return deferred.promise;
+        }
+
         // function handleSuccess(res) {
         //     return res.data;
         // }
