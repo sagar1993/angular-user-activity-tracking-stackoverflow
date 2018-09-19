@@ -1,0 +1,43 @@
+﻿a {
+    cursor: pointer;
+}
+
+.list-item {
+    border: 0 !important;
+    padding: 10px 0px;
+}
+
+ol
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.votes-container {
+    transform: translateY(25%);
+}
+
+.votes
+{
+    font-size: 18px;
+}
+
+.votes-text {
+    color: grey;
+}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+
+ol li {
+    border-bottom: 1px dotted #ccc;
+}
+
+ol li:last-of-type {
+    border-bottom: none;
+}

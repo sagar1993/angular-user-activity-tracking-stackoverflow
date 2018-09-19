@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="col-md-4">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">User profile</h3>
+                    <span class="pull-right clickable"></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group"> 
+                        <li class="list-group-item text-muted">User Information. <i class="fa fa-dashboard fa-1x"></i></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Username</strong></span>{{vm.user.username}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>First Name</strong></span>{{vm.user.firstName}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Last Name</strong></span>{{vm.user.lastName}}</li>
+                    </ul>
+            
+                    <ul class="list-group"> 
+                        <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Question click</strong></span>{{vm.activity.question}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>User Profile click</strong></span>{{vm.activity.profile}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>...</strong></span> ...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Login History</h3>
+                    <span class="pull-right clickable"></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group"> 
+                        <li class="list-group-item text-muted">Last Login <i class="fa fa-dashboard fa-1x"></i></li>
+                        <li class="list-group-item text-left" ng-repeat="data in vm.loginHistory">
+                                {{data.dt.$date | date:'medium' }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">User Activity</h3>
+                <span class="pull-right clickable"></span>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Event</th>
+                        <th scope="col">Url</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in vm.logdata">
+                        <th scope="row">{{$index + 1}}</th>
+                        <td>{{data.dt.$date | date:'medium'}}</td>
+                        <td>{{data.type}}</td>
+                        <td>{{data.event}}</td>
+                        <td><a href="{{data.url}}">{{data.url}}</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
