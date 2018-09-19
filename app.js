@@ -33,6 +33,12 @@
                 controllerAs: 'vm'
             })
 
+            .when('/dashboard', {
+                controller: 'DashboardController',
+                templateUrl: 'dashboard/dashboard.view.html',
+                controllerAs: 'vm'
+            })
+
             .otherwise({ redirectTo: '/login' });
     }
 
@@ -42,6 +48,7 @@
         $rootScope.globals = $cookies.getObject('globals') || {};
         if ($rootScope.globals.currentUser) {
             console.log($rootScope.globals.currentUser.username);
+            $rootScope.loggedIn = true;
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
         }
 
@@ -49,7 +56,9 @@
             // redirect to login page if not logged in and trying to access a restricted page
             var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
+            $rootScope.loggedIn = loggedIn;
             if (restrictedPage && !loggedIn) {
+                $rootScope.loggedIn = false;
                 $location.path('/login');
             }
         });

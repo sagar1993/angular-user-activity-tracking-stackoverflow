@@ -5,14 +5,15 @@
         .module('app')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
-    function LoginController($location, AuthenticationService, FlashService) {
+    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService', '$rootScope'];
+    function LoginController($location, AuthenticationService, FlashService, $rootScope) {
         var vm = this;
 
         vm.login = login;
 
         (function initController() {
             AuthenticationService.ClearCredentials();
+            $rootScope.loggedIn = false;
         })();
 
         function login() {

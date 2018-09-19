@@ -9,21 +9,23 @@
 <body>
     <div class="jumbotron">
         <div class="container-fluid">
-                <!-- <nav class="navbar navbar-default" role="navigation">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Assignment 1: AW</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-slide-dropdown">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Profile</a></li>
-                            </ul>
-                        </div>
+            <nav class="navbar navbar-default" role="navigation" ng-if="!!loggedIn">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Assignment 1: AW</a>
                     </div>
-                </nav> -->
-                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-                <div ng-view></div>
+                    <div class="collapse navbar-collapse" id="bs-slide-dropdown">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#!/profile">Profile</a></li>
+                            <li><a href="#!/dashboard">Dashboard</a></li>
+                            <li><a href="#!/none">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+            <div ng-view></div>
         </div>
     </div>
 
@@ -31,6 +33,8 @@
     <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
+    <!-- <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script> -->
 
     <script src="app.js"></script>
     <script src="app-services/authentication.service.js"></script>

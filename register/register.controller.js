@@ -11,6 +11,10 @@
 
         vm.register = register;
 
+        (function initController() {
+            $rootScope.loggedIn = false;
+        })();
+
         function register() {
             vm.dataLoading = true;
             UserService.Create(vm.user)
