@@ -10,7 +10,7 @@
     <div class="jumbotron">
         <div class="container-fluid">
             <nav class="navbar navbar-default" role="navigation" ng-if="!!loggedIn">
-                <!-- <div class="container"> -->
+                <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#">Assignment 1: AW</a>
                     </div>
@@ -22,7 +22,7 @@
                             <li><a href="#!/none">Logout</a></li>
                         </ul>
                     </div>
-                <!-- </div> -->
+                </div>
             </nav>
             <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
             <div ng-view></div>

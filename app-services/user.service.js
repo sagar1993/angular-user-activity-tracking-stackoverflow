@@ -18,6 +18,7 @@
         service.Login = Login;
         service.LoginHistory = LoginHistory;
         service.UserActivity = UserActivity;
+        service.GetUserActivityChartData = GetUserActivityChartData;
 
         return service;
 
